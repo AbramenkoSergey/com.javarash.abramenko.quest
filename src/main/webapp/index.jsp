@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +9,10 @@
 
 </head>
 <body>
+
+
 <h2>Где-то на просторах Империума.</h2><br>
- <center><img src="logo.jpg" ></center>
+ <div style="text-align: center;"><img src="logo.jpg" ></div>
  <br>
 <h6>Прогуливаясь по библиотеке Вы замечаете старый инфопланшет с которого  местами  стерлась  краска, поскольку Вы здесь ждали  связного, а
     он  задерживался, чтобы  скоротать время, то  узнать что  на нем было ни чуть не хуже чем просто  блуждать  между пыльными  полками.
@@ -17,15 +20,14 @@
 представиться, это было необычно по этой причине  Вы  ввели имя, которое первое пришло в голову</h6>
 
 <%--TO: DO через цилкл раскидать статистику--%>
+<c:if test="${username== null}" >
 <form action="start-story", method="POST">
     Name: <input name="username" />
-    <input type="submit" value="Accept"/>
+    <input type="submit" value="Accept" />
 </form>
-
-
-<%--<button onclick="document.location='/quest_war_exploded/start-story'">Переход по ссылке1</button>--%>
+</c:if>
+<c:if test="${username!= null}" >
 <form action="heresy" method="POST">
-<%--    <button>Переход по ссылке2</button>--%>
     <input type="submit" value="Heresy" />
 </form>
 <form action="Inquisition" method="POST">
@@ -34,7 +36,7 @@
 <form action="adeptus-arbites-servlet" method="POST">
     <input type="submit" value="Adeptus Arbites" />
 </form>
-
+</c:if>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>

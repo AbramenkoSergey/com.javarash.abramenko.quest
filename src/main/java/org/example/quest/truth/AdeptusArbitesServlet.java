@@ -25,11 +25,11 @@ public class AdeptusArbitesServlet extends HttpServlet {
         out.println("<center><img src=\"imgAdeptusArbites.jpg\" ></center><br><br>");
         out.println("<h4>" + textStory3);
 
-        out.println("</h4>");
-        out.println("<form action=\"SendSignalServlet\" method=\"POST\">\n" +
+        out.println("</h4><br>");
+        out.println("<form action=\"send-signal\" method=\"POST\">\n" +
                 "<input type=\"submit\" value=\"Отправить сигнал\" />\n" +
                 "</form>");
-        out.println("<form action=\"DestroyRecordServlet\" method=\"POST\">\n" +
+        out.println("<form action=\"destroy-record\" method=\"POST\">\n" +
                 "<input type=\"submit\" value=\"Уничтожить запись\" />\n" +
                 "</form>");
         out.println("</body></html>");
