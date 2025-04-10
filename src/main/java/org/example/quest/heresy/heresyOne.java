@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 
 @WebServlet(name = "heresyOne", value = "/heresy")
@@ -38,8 +39,9 @@ public class heresyOne extends HttpServlet {
 
     }
 
-    public void doPost (HttpServletRequest request, HttpServletResponse response){
+    public void doPost (HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         response.setCharacterEncoding("UTF-8");
+
         response.setContentType("text/html");
         PrintWriter out = null;
         try {
@@ -49,8 +51,8 @@ public class heresyOne extends HttpServlet {
         }
         out.println("<html>" +"<meta charset=\"UTF-8\">"+"<body>");
         out.println("<center><img src=\"Heresy_seal.webp\" ></center><br>");
+        out.println("<br><h2>"+"Сейчас  играет: "+ request.getSession().getAttribute("username")+ "</h2><br>");
         out.println("<h4>" + textStory);
-
         out.println("</h4>");
         out.println("<form action=\"acceptOffer\" method=\"POST\">\n" +
                 "<input type=\"submit\" value=\"Принять его предложение\" />\n" +

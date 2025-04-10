@@ -26,17 +26,12 @@ public class StartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
+        resp.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
         String userStringName = req.getParameter("username");
         HttpSession session = req.getSession();
         if(userStringName != null) {
             session.setAttribute("username", userStringName);
-            Integer counter = (Integer) session.getAttribute("counter");
-            if (counter == null) {
-                session.setAttribute("counter", 1);
-                counter = 1;
-            }else {
-                session.setAttribute("counter", counter + 1);
-            }
 
         }
         getServletContext().getRequestDispatcher("/index.jsp")

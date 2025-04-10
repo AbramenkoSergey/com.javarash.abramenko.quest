@@ -25,6 +25,8 @@ public class SendSignalServlet extends HttpServlet {
         out.println("<html>" +"<meta charset=\"UTF-8\">"+"<body>");
         out.println("<h4>" + textStory3);
         out.println("</h4><br>");
+        out.println("<br><h2>"+(String) req.getSession().getAttribute("username")+" , в мире Warhammer`a превозмогают все по разному"+ "</h2><br>");
+
         out.println("<form action=\"/quest_war_exploded\" method=\"POST\">\n" +
                 "<input type=\"submit\" value=\"Вернуться в начало\" />\n" +
                 "</form>");

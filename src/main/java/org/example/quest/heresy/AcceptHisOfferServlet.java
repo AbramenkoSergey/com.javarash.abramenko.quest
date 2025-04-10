@@ -44,6 +44,7 @@ public class AcceptHisOfferServlet  extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setCharacterEncoding("UTF-8");
+
         response.setContentType("text/html");
         PrintWriter out = null;
         try {
@@ -52,12 +53,13 @@ public class AcceptHisOfferServlet  extends HttpServlet {
             throw new RuntimeException(e);
         }
         HttpSession session = request.getSession();
-        String username = (String) session.getAttribute("username");
 
 
         out.println("<html>" +"<meta charset=\"UTF-8\">"+"<body>");
         out.println("<h4>" + textStory);
         out.println("</h4><br>");
+        out.println("<br><h2>"+(String) request.getSession().getAttribute("username")+" , в мире Warhammer`a превозмогают все по разному"+ "</h2><br>");
+
         out.println("<form action=\"/quest_war_exploded\" method=\"POST\">\n" +
                 "<input type=\"submit\" value=\"Вернуться в начало\" />\n" +
                 "</form>");

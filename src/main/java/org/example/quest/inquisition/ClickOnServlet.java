@@ -22,7 +22,10 @@ public class ClickOnServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
         out.println("<html>" +"<meta charset=\"UTF-8\">"+"<body>");
+        out.println("<br><h2>"+"Сейчас  играет: "+ req.getSession().getAttribute("username")+ "</h2><br>");
         out.println("<h4>" + textStory2);
+        out.println("<br><h2>"+(String) req.getSession().getAttribute("username")+" , в мире Warhammer`a превозмогают все по разному"+ "</h2><br>");
+
         out.println("</h4><br>");
         out.println("<form action=\"/quest_war_exploded\" method=\"POST\">\n" +
                 "<input type=\"submit\" value=\"Вернуться в начало\" />\n" +

@@ -24,7 +24,7 @@ public class AdeptusArbitesServlet extends HttpServlet {
         out.println("<html>" +"<meta charset=\"UTF-8\">"+"<body>");
         out.println("<center><img src=\"imgAdeptusArbites.jpg\" ></center><br><br>");
         out.println("<h4>" + textStory3);
-
+        out.println("<br><h2>"+"Сейчас  играет: "+ req.getSession().getAttribute("username")+ "</h2><br>");
         out.println("</h4><br>");
         out.println("<form action=\"send-signal\" method=\"POST\">\n" +
                 "<input type=\"submit\" value=\"Отправить сигнал\" />\n" +
